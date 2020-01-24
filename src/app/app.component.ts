@@ -9,11 +9,17 @@ import List from './models/list.model';
 export class AppComponent {
 
   title = 'toDoListes';
+  listName = "Nom de la nouvelle liste";
   lists = [
     new List("Mécanique"),
     new List("Ménage"),
     new List("Courses"),
     new List("Projet")
   ];
+
+  addList() {
+    this.lists.push(new List(this.listName));
+    console.table(this.lists);
+  }
 
 }
