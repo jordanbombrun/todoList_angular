@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import ListItem from '../models/listItem.model';
 
 @Component({
   selector: 'app-list-item',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
+
+  @Input()
+  listItem: ListItem;
 
   constructor() { }
 
