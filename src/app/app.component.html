@@ -1,28 +1,33 @@
 <div class="container-fluid">
 
-  <div class="row" id="form">
-    <div class="col"><h2>Ajouter une liste</h2></div>
-  </div>
-  <div class="row">
-    <div class="col-2">Nom de la liste</div>
-    <div class="col-10"><input [(ngModel)]="listName"/></div>
-  </div>
-  <div class="row">
-    <div id="submit" class="col">
-      <button (click)="addList()" class="btn btn-success">Ajouter</button>
-    </div>
-  </div>
-
   <div class="row">
     <div class="my-5 p-3 col-8 offset-2 bg-light">
       <h1 class="text-center">To Do Listes</h1>
 
-      <ul class="list-unstyled">
-        <app-list [list]="l" *ngFor="let l of lists"></app-list>
-      </ul>
+      <div id="form">
+        <div class="row">
+          <div class="col"><h2>Ajouter une liste</h2></div>
+        </div>
+        <div class="row">
+          <div class="col-2">Nom de la liste</div>
+          <div class="col-10"><input [(ngModel)]="listName"/></div>
+        </div>
+        <div class="row">
+          <div id="submit" class="col">
+            <button (click)="addList()" class="btn btn-success">Ajouter</button>
+          </div>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col">
+          <ul class="list-unstyled">
+            <app-list [list]="l" *ngFor="let l of lists"></app-list>
+          </ul>
+        </div>
+      </div>
     </div>
-
   </div>
+
 
 </div>

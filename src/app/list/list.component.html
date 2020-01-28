@@ -1,3 +1,10 @@
-<li class="list-group">
+<li class="list-group-item my-3">
   {{list.name}}
+
+  <ul class="list-unstyled ml-5">
+    <li *ngFor="let item of list.listItems; index as i">
+      {{list.listItems[i].name}}
+    </li>
+  </ul>
+
 </li>

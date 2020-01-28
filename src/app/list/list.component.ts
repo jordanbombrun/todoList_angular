@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import List from '../models/list.model';
+import ListItem from '../models/listItem.model';
 
 @Component({
   selector: 'app-list',
