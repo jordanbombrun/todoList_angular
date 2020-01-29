@@ -1,9 +1,18 @@
 <div class="container-fluid">
 
+
   <div class="row">
     <div class="my-5 p-3 col-8 offset-2 bg-light">
       <h1 class="text-center">To Do Listes</h1>
-
+      <div class="row text-center">
+        <div class="col-5">
+          <app-register></app-register>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-5">
+          <app-connexion></app-connexion>
+        </div>
+      </div>
       <div id="form">
         <div class="row">
           <div class="col"><h2>Ajouter une liste</h2></div>
@@ -19,13 +28,9 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
-          <ul class="list-unstyled">
-            <app-list [list]="l" *ngFor="let l of lists"></app-list>
-          </ul>
-        </div>
-      </div>
+      <ul class="list-unstyled row">
+        <app-list [list]="l" *ngFor="let l of lists"></app-list>
+      </ul>
     </div>
   </div>
 
