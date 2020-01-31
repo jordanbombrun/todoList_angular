@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './list/list.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import {FormsModule} from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { RegisterComponent } from './register/register.component';
+import { ListsComponent } from './lists/lists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
     ListItemComponent,
     ConnexionComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
