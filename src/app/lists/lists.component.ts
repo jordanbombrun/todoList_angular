@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import List from '../models/list.model';
 import {ListService} from '../services/list.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-lists',
@@ -10,28 +11,35 @@ import {ListService} from '../services/list.service';
 export class ListsComponent implements OnInit {
 
   lists: List[];
-  listName = "nom";
+  listName = 'nom';
   newListItem: String;
+  listTest: Observable<List[]>;
 
-
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService) {
+  }
 
   ngOnInit() {
-    this.getLists();
+    this.listTest = this.listService.getLists();
+    console.log('########getLists() du service dans le component List ######');
+    console.log("listTest est : ");
+    console.log(this.listTest);
   }
 
-  getLists(): void {
+  /*getLists(): void {
     this.listService.getLists().subscribe(lists => this.lists = lists);
-  }
+  }*/
 
   addList() {
     this.lists.push(new List(this.listName, []));
   }
 
-  editListItem() {}
+  editListItem() {
+  }
 
-  deleteListItem() {}
+  deleteListItem() {
+  }
 
-  createListItem() {}
+  createListItem() {
+  }
 
 }
