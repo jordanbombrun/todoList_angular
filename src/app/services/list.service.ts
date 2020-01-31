@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import List from '../models/list.model';
 import ListItem from '../models/listItem.model';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class ListService {
 
   constructor() { }
 
-  getLists(): List[] {
-    return this.LISTS;
+  getLists(): Observable<List[]> {
+    return of(this.LISTS);
   }
 }

@@ -21,7 +21,7 @@ export class ListsComponent implements OnInit {
   }
 
   getLists(): void {
-    this.lists = this.listService.getLists();
+    this.listService.getLists().subscribe(lists => this.lists = lists);
   }
 
   addList() {
