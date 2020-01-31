@@ -1,12 +1,29 @@
-<h2 class="my-3">Connexion</h2>
-<div>
-  <label for="nameCon">Utilisateur</label>
-  <input id="nameCon" type="text" name="nameCon">
+<div class="col-6">
+  <h2 class="">Enregistrement</h2>
+  <div>
+    <label for="usernameReg">Utilisateur</label>
+    <input id="usernameReg" type="text" name="nameReg" [(ngModel)]="usernameReg">
+  </div>
+  <div>
+    <label for="passwordReg">Mot de passe</label>
+    <input id="passwordReg" type="password" name="passReg" [(ngModel)]="passwordReg">
+  </div>
+  <div>
+    <button class="btn btn-warning" (click)="register()">S'inscrire</button>
+  </div>
 </div>
-<div>
-  <label for="passCon">Mot de passe</label>
-  <input id="passCon" type="password" name="passCon">
-</div>
-<div>
-  <button class="btn btn-success">Connexion</button>
+
+<div class="col-6">
+  <h2 class="">Connexion</h2>
+  <div>
+    <label for="usernameCon">Utilisateur</label>
+    <input id="usernameCon" type="text" name="nameCon" [(ngModel)]="usernameCon">
+  </div>
+  <div>
+    <label for="passwordCon">Mot de passe</label>
+    <input id="passwordCon" type="password" name="passCon" [(ngModel)]="passwordCon">
+  </div>
+  <div>
+    <button class="btn btn-success" (click)="connexion()">Connexion</button>
+  </div>
 </div>

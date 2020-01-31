@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {ListService} from '../services/list.service';
 
 @Component({
   selector: 'app-connexion',
@@ -8,31 +9,20 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  passwordCon: string = "";
+  usernameCon: string = "";
+
+  usernameReg: string = "";
+  passwordReg: string = "";
+
+  constructor(private listService: ListService) { }
 
   register() {
-    console.log("fct inscription : ");
-    let url = "http://92.222.69.104:80/todo/create/jordan" + "/jordan";
-    return this.http.get(url).subscribe(
-      res => console.log(res),
-      msg => console.log(msg)
-    );
+    this.listService.register(this.usernameReg, this.passwordReg);
   }
 
   connexion() {
-    console.log("fct connexion : ");
-    const httpOptions = {
-      headers: new HttpHeaders({
-        login : "jordan",
-        password : "jordan"
-      })
-    };
-    let url = "http://92.222.69.104:80/todo/listes";
-    return this.http.get(url, httpOptions)
-    .subscribe(
-      res => console.log(res),
-      msg => console.log(msg)
-    );
+    this.listService.connexion(this.usernameCon, this.passwordCon);
   }
 
 

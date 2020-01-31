@@ -12,22 +12,12 @@ export class ListsComponent implements OnInit {
 
   lists: List[];
   listName = 'nom';
-  newListItem: String;
-  listTest: Observable<List[]>;
+  newListItem: string;
 
   constructor(private listService: ListService) {
   }
 
-  ngOnInit() {
-    this.listTest = this.listService.getLists();
-    console.log('########getLists() du service dans le component List ######');
-    console.log("listTest est : ");
-    console.log(this.listTest);
-  }
-
-  /*getLists(): void {
-    this.listService.getLists().subscribe(lists => this.lists = lists);
-  }*/
+  ngOnInit() { }
 
   addList() {
     this.lists.push(new List(this.listName, []));
