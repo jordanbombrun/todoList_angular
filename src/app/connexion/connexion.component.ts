@@ -25,6 +25,11 @@ export class ConnexionComponent implements OnInit {
     this.listService.connexion(this.usernameCon, this.passwordCon);
   }
 
+  test() {
+    console.log("####### ici le test");
+    console.log(this.listService.regResponse);
+  }
+
 
   ngOnInit() { }
 
