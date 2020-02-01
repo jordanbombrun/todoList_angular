@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import {ListService} from '../services/list.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {APIResponse, ListService} from '../services/list.service';
 
 @Component({
   selector: 'app-connexion',
@@ -9,28 +9,35 @@ import {ListService} from '../services/list.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  passwordCon: string = "";
-  usernameCon: string = "";
+  passwordCon: string = '';
+  usernameCon: string = '';
 
-  usernameReg: string = "";
-  passwordReg: string = "";
+  usernameReg: string = '';
+  passwordReg: string = '';
 
-  constructor(private listService: ListService) { }
+  APIResponse: APIResponse;
+
+  constructor(private listService: ListService) {
+  }
 
   register() {
     this.listService.register(this.usernameReg, this.passwordReg);
   }
 
   connexion() {
-    this.listService.connexion(this.usernameCon, this.passwordCon);
+    this.listService.connexion(this.usernameCon, this.passwordCon); //connexion à l'API
   }
 
-  test() {
-    console.log("####### ici le test");
-    console.log(this.listService.regResponse);
+  getData() {
+   if (this.listService.conResponse) { // connexion réussie
+      this.APIResponse = this.listService.conResponse;
+      console.log(this.APIResponse);
+    } else { // connexion échouée
+      console.log('vide');
+    }
   }
 
-
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
 }

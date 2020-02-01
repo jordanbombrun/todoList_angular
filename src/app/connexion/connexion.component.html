@@ -30,4 +30,15 @@
   </div>
 </div>
 
-<button (click)="test()">TEST</button>
+<button (click)="getData()">récupérer les données</button>
+<div *ngIf="APIResponse">
+  <p>{{APIResponse.utilisateur}}</p>
+  <p>{{APIResponse.password}}</p>
+  <ul>
+    <li *ngFor="let list of APIResponse.todoListes">{{list.name}} :
+      <ul>
+        <li *ngFor="let listItem of list.elements">{{listItem}}></li>
+      </ul>
+    </li>
+  </ul>
+</div>

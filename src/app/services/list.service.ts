@@ -15,8 +15,7 @@ export interface APIResponse {
 })
 export class ListService {
 
-  regResponse;
-  conResponse;
+  conResponse: APIResponse;
 
   constructor(private http: HttpClient) {
   }
@@ -40,8 +39,7 @@ export class ListService {
     this.http.get<APIResponse>(url, httpOptions)
       .subscribe(
         res => {
-          console.log(res);
-          console.log(res.todoListes);
+          this.conResponse = res;
         },
         msg => console.log(msg)
       );
