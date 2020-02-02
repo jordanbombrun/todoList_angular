@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import List from './models/list.model';
-import {ListService} from './services/list.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +10,6 @@ export class AppComponent {
   title = 'toDoListes';
 
   constructor() { }
+
 
 }

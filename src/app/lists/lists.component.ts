@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import List from '../models/list.model';
 import {APIResponse, ListService} from '../services/list.service';
 import {Observable} from 'rxjs';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-lists',
