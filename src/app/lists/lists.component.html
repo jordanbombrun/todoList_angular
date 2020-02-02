@@ -1,12 +1,18 @@
-<div class="row">
-  <div class="col-8 offset-2">
-    <ul class="list-group list-unstyled" *ngFor="let list of lists">
+<div class="row mt-3">
+  <div class="col-12 text-center">
+    <button class="btn btn-warning" (click)="getData()">Afficher les listes</button>
+  </div>
+
+  <!--listes-->
+  <div *ngIf="APIResponse; else errorDiv" class="offset-2 col-8">
+    <h2 *ngIf="APIResponse.utilisateur">Les listes de <b>{{APIResponse.utilisateur}}</b></h2>
+    <ul class="list-group list-unstyled" *ngFor="let list of APIResponse.todoListes">
       <li class="list-group-item my-3">
         <b>{{list.name}} :</b>
 
-        <ul class="list-group list-unstyled my-3" *ngFor="let listItem of list.listItems; let i=index">
+        <ul class="list-group list-unstyled my-3" *ngFor="let listItem of list.elements; let i=index">
           <li class="list-group-item">
-            {{listItem.name}}
+            {{listItem}}
 
             <span> ### index du tableau : {{i}} </span>
             <button class="fas fa-edit mx-2" (click)="editListItem()"></button><!--edit the listItem-->
@@ -21,6 +27,11 @@
 
       </li> <!-- fin de la liste courante-->
     </ul>
-
   </div>
+
+  <ng-template #errorDiv><!--message d'erreur-->
+    <div class="offset-2 col-8">
+      <p>Vous n'êtes pas connecté. Authentifiez vous pour afficher vos todo listes !</p>
+    </div>
+  </ng-template>
 </div>
