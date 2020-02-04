@@ -15,13 +15,14 @@ export interface APIResponse {
 })
 export class ListService {
 
-  conResponse: APIResponse;
+  conObject: APIResponse;
+  APIURL = 'http://92.222.69.104:80/todo/';
 
   constructor(private http: HttpClient) {
   }
 
   register(usernameReg, passwordReg) {
-    let url = 'http://92.222.69.104:80/todo/create/' + usernameReg + '/' + passwordReg;
+    let url = this.APIURL + 'create/' + usernameReg + '/' + passwordReg;
     this.http.get(url).subscribe(
       res => console.log(res),
       msg => console.log(msg)
@@ -35,16 +36,16 @@ export class ListService {
         password: passwordCon
       })
     };
-    let url = 'http://92.222.69.104:80/todo/listes';
+    let url = this.APIURL + 'listes';
     this.http.get<APIResponse>(url, httpOptions)
       .subscribe(
         res => {
-          this.conResponse = res;
+          this.conObject = res;
         },
         msg => {
           console.log(msg);
           // détruit l'objet de réponse en cas d'erreur d'authentification
-          this.conResponse = new class implements APIResponse {
+          this.conObject = new class implements APIResponse {
             password: string;
             todoListes: Array<{ name: string; elements: Array<string> }>;
             utilisateur: string;
@@ -52,12 +53,19 @@ export class ListService {
         }
       );
   }
-}
 
-  /* requete ajax POST
-  $.ajax({
-        type: 'post',
-        data: JSON.stringify(objToBeSend),
-        contentType: "application/json; charset=utf-8",
-        url: "http://92.222.69.104:80/todo/listes"
-    }).done(function(data) {*/
+  postData(list) {
+    this.conObject.todoListes.push(list);
+
+    let url = this.APIURL + 'listes';
+    this.http.post<APIResponse>(url, this.conObject)
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+}

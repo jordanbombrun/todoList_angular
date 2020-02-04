@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import List from '../models/list.model';
 import {APIResponse, ListService} from '../services/list.service';
 
-import * as $ from "jquery";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-lists',
@@ -20,19 +20,19 @@ export class ListsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.newList = new List("", []);
+    this.newList = new List('', []);
   }
 
   getData() {
-    this.APIResponse = this.listService.conResponse;
+    this.APIResponse = this.listService.conObject;
   }
 
   addList() {
-    console.log(this.newList);
+    this.listService.postData(this.newList);
   }
 
   editListItem(indexList, indexItem) {
-    let itemElement = $(".list" + indexList + " #item" + indexItem);
+    let itemElement = $('.list' + indexList + ' #item' + indexItem);
     //let newInput = "<input type=\"text\"  [(ngModel)]=\"newListItem\" placeholder='" + itemElement.text() + "'>";
     //itemElement.replaceWith(newInput);
   }
