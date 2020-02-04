@@ -45,10 +45,16 @@ export class ListsComponent implements OnInit {
     this.listService.postData(this.APIObject);
   }
 
-  editListItem(indexList, indexItem) {
-    let itemElement = $('.list' + indexList + ' #item' + indexItem);
-    //let newInput = "<input type=\"text\"  [(ngModel)]=\"newListItem\" placeholder='" + itemElement.text() + "'>";
-    //itemElement.replaceWith(newInput);
+  editList(indexList: number) {
+    $('li.list' + indexList).append('<h3 class="mt-2">Modifiez votre liste ici</h3>');
+    $('li.list' + indexList).append('<div>Nom de liste : <input type="text" list="' + indexList + '" name="editListName" placeholder="Nouveau nom"></div><ul>');
+    for (let i = 0; i < this.APIObject.todoListes[indexList].elements.length; i++) {
+      let j = i + 1;
+      $('li.list' + indexList).append('<li class="list-unstyled">Item ' + j + ' : <input type="text" name="editListName' + i +
+        '" placeholder="Nouveau nom d\'item ' + j + '"></li>');
+    }
+    $('li.list' + indexList).append('</ul>');
+    $('li.list' + indexList).append('<button class="btn btn-success" onclick="submitEdit(indexList)"> Ajouter la liste</button>');
   }
 
   /*addListItem() {
