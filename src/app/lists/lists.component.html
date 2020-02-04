@@ -3,12 +3,13 @@
     <button class="btn btn-warning" (click)="getData()">Afficher les listes</button>
   </div>
 
-  <div *ngIf="APIResponse; else errorDiv" class="offset-2 col-8">
-    <h2 *ngIf="APIResponse.utilisateur">Les listes de <b>{{APIResponse.utilisateur}}</b></h2>
+  <div *ngIf="APIObject; else errorDiv" class="offset-2 col-8">
+    <h2 *ngIf="APIObject.utilisateur" class="text-center">Les listes de <b>{{APIObject.utilisateur}}</b></h2>
     <!--listes-->
-    <ul class="list-group list-unstyled" *ngFor="let list of APIResponse.todoListes; let indexList=index">
+    <ul class="list-group list-unstyled" *ngFor="let list of APIObject.todoListes; let indexList=index">
       <li class="list-group-item my-3 list{{indexList}}">
         <b id="list{{indexList}}">{{list.name}} :</b>
+        <button class="fas fa-trash mx-2" (click)="deleteList(indexList)"></button>
 
         <ul class="list-group list-unstyled my-3" *ngFor="let listItem of list.elements; let indexItem=index">
           <li class="list-group-item">
@@ -29,15 +30,18 @@
     </ul>
 
     <div> <!-- ajout nouvelle liste -->
-      <label for="nListname">
+      <h2 class="text-center">Ajouter votre liste</h2>
+
+      <label for="newListname">Nom :
         <input type="text" [(ngModel)]="newList.name" id="newListname">
       </label>
-      <ul>
-        <li><input type="text"
-                   [(ngModel)]="newList.elements[0]"
-                   class="newListItem"
+      <ul class="list-group">
+        <li class="list-group-item">Item : <input type="text"
+                                                  [(ngModel)]="newList.elements[0]"
+                                                  class="newListItem"
         ></li>
-        <li><input type="text" [(ngModel)]="newList.elements[1]" class="newListItem"></li>
+        <li class="list-group-item">Item : <input type="text" [(ngModel)]="newList.elements[1]" class="newListItem">
+        </li>
       </ul>
       <button class="btn btn-success" (click)="addList()">Ajouter</button>
     </div>

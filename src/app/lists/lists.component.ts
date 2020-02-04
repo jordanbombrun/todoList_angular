@@ -13,7 +13,7 @@ export class ListsComponent implements OnInit {
 
   lists: List[];
   newListItem: string;
-  APIResponse: APIResponse;
+  APIObject: APIResponse;
   newList: List;
 
   constructor(private listService: ListService) {
@@ -24,13 +24,20 @@ export class ListsComponent implements OnInit {
   }
 
   getData() {
-    this.APIResponse = this.listService.conObject;
+    this.APIObject = this.listService.conObject;
   }
 
   addList() {
-    this.listService.postData(this.newList);
-    $("#newListname").val('');
-    $(".newListItem").val('');
+    this.APIObject.todoListes.push(this.newList);
+    this.listService.postData(this.APIObject);
+    // reset du formulaire
+    $('#newListname').val('');
+    $('.newListItem').val('');
+  }
+
+  deleteList(indexList: number) {
+    this.APIObject.todoListes.splice(indexList, 1);
+    this.listService.postData(this.APIObject);
   }
 
   editListItem(indexList, indexItem) {

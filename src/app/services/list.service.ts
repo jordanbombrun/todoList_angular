@@ -54,11 +54,9 @@ export class ListService {
       );
   }
 
-  postData(list) {
-    this.conObject.todoListes.push(list);
-
+  postData(obj) {
     let url = this.APIURL + 'listes';
-    this.http.post<APIResponse>(url, this.conObject)
+    this.http.post<APIResponse>(url, obj)
       .subscribe(
         res => {
           console.log(res);
