@@ -12,7 +12,6 @@ import * as $ from "jquery";
 export class ListsComponent implements OnInit {
 
   lists: List[];
-  listName = 'nom';
   newListItem: string;
   APIResponse: APIResponse;
   newList: List;
@@ -21,6 +20,7 @@ export class ListsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newList = new List("", []);
   }
 
   getData() {
@@ -28,7 +28,6 @@ export class ListsComponent implements OnInit {
   }
 
   addList() {
-    //this.lists.push(new List(this.listName, []));
     console.log(this.newList);
   }
 
