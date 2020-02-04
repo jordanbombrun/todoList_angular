@@ -30,11 +30,14 @@
 
     <div> <!-- ajout nouvelle liste -->
       <label for="nListname">
-        <input type="text" [(ngModel)]="newList.name" id="nListname">
+        <input type="text" [(ngModel)]="newList.name" id="newListname">
       </label>
       <ul>
-        <li><input type="text" [(ngModel)]="newList.elements[0]" id="nListItem0"></li>
-        <li><input type="text" [(ngModel)]="newList.elements[1]" id="nListItem1"></li>
+        <li><input type="text"
+                   [(ngModel)]="newList.elements[0]"
+                   class="newListItem"
+        ></li>
+        <li><input type="text" [(ngModel)]="newList.elements[1]" class="newListItem"></li>
       </ul>
       <button class="btn btn-success" (click)="addList()">Ajouter</button>
     </div>

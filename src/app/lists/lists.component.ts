@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import List from '../models/list.model';
 import {APIResponse, ListService} from '../services/list.service';
 
@@ -29,6 +29,8 @@ export class ListsComponent implements OnInit {
 
   addList() {
     this.listService.postData(this.newList);
+    $("#newListname").val('');
+    $(".newListItem").val('');
   }
 
   editListItem(indexList, indexItem) {
