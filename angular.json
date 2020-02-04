@@ -31,7 +31,10 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.js",
+              "node_modules/popper.js/dist/umd/popper.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -125,6 +128,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "toDoListes"
 }

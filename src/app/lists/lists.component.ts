@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import List from '../models/list.model';
 import {APIResponse, ListService} from '../services/list.service';
-import {Observable} from 'rxjs';
-import {AppComponent} from '../app.component';
+
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-lists',
@@ -15,6 +15,7 @@ export class ListsComponent implements OnInit {
   listName = 'nom';
   newListItem: string;
   APIResponse: APIResponse;
+  newList: List;
 
   constructor(private listService: ListService) {
   }
@@ -27,16 +28,22 @@ export class ListsComponent implements OnInit {
   }
 
   addList() {
-    this.lists.push(new List(this.listName, []));
+    //this.lists.push(new List(this.listName, []));
+    console.log(this.newList);
   }
 
-  editListItem() {
+  editListItem(indexList, indexItem) {
+    let itemElement = $(".list" + indexList + " #item" + indexItem);
+    //let newInput = "<input type=\"text\"  [(ngModel)]=\"newListItem\" placeholder='" + itemElement.text() + "'>";
+    //itemElement.replaceWith(newInput);
   }
 
-  deleteListItem() {
-  }
+  /*addListItem() {
+    let buttonValid = $(".list" + indexList + " .fa-check-square");
+    buttonValid.replaceWith('<button class="fas fa-edit" (click)="editListItem(indexList, indexItem)"></button>');
+  }*/
 
-  createListItem() {
+  deleteListItem(indexList, indexItem) {
   }
 
 }

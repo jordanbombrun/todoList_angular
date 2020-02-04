@@ -1,7 +1,5 @@
-import {Injectable, Input} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
-import {AppComponent} from '../app.component';
 
 export interface APIResponse {
   utilisateur: string;
@@ -54,6 +52,7 @@ export class ListService {
         }
       );
   }
+}
 
   /* requete ajax POST
   $.ajax({
@@ -62,4 +61,3 @@ export class ListService {
         contentType: "application/json; charset=utf-8",
         url: "http://92.222.69.104:80/todo/listes"
     }).done(function(data) {*/
-}
