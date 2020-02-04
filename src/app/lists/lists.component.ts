@@ -40,6 +40,11 @@ export class ListsComponent implements OnInit {
     this.listService.postData(this.APIObject);
   }
 
+  deleteListItem(indexList: number, indexItem: number) {
+    this.APIObject.todoListes[indexList].elements.splice(indexItem, 1);
+    this.listService.postData(this.APIObject);
+  }
+
   editListItem(indexList, indexItem) {
     let itemElement = $('.list' + indexList + ' #item' + indexItem);
     //let newInput = "<input type=\"text\"  [(ngModel)]=\"newListItem\" placeholder='" + itemElement.text() + "'>";
@@ -51,7 +56,5 @@ export class ListsComponent implements OnInit {
     buttonValid.replaceWith('<button class="fas fa-edit" (click)="editListItem(indexList, indexItem)"></button>');
   }*/
 
-  deleteListItem(indexList, indexItem) {
-  }
 
 }
