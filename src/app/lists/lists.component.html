@@ -8,7 +8,12 @@
     <!--listes-->
     <ul class="list-group list-unstyled" *ngFor="let list of APIObject.todoListes; let indexList=index">
       <li class="list-group-item my-3 list{{indexList}}">
-        <b id="list{{indexList}}">{{list.name}} :</b>
+        <b>{{list.name}} :</b>
+        <div class="inputListEdit" id="list{{indexList}}">
+          <input type="text" placeholder="{{list.name}}"
+                 [(ngModel)]="list.name">
+          <button class="btn btn-success" (click)="refreshAPI(indexList)">Valider la modification</button>
+        </div>
         <button class="fas fa-trash mx-2" (click)="deleteList(indexList)"></button>
         <button class="fas fa-edit mx-2" (click)="editList(indexList)"></button>
 
