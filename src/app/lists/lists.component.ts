@@ -46,12 +46,14 @@ export class ListsComponent implements OnInit {
   }
 
   editList(indexList: number) {
-    $('div#list' + indexList).show();
+    $('div.listToEdit' + indexList).show();
+    $('div.inputListAdd' + indexList).hide();
   }
 
   refreshAPI(indexList: number) {
     this.listService.postData(this.APIObject);
-    $('div#list' + indexList).hide();
+    $('div.listToEdit' + indexList).hide();
+    $('div.inputListAdd' + indexList).show();
   }
 
   /*addListItem() {
