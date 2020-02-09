@@ -1,3 +1,13 @@
-div.inputListEdit {
-  display: none;
+div {
+
+  .inputListEdit {
+    display: none;
+  }
+
+  .divNewList {
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 5px;
+  }
 }

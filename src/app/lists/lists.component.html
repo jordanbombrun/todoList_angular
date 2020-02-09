@@ -27,19 +27,19 @@
 
         </ul>
         <div class="inputListEdit listToEdit{{indexList}}">
-          <button class="btn btn-success" (click)="refreshAPI(indexList)">Valider la modification</button>
+          <button class="btn btn-success" (click)="editToAPI(indexList)">Valider la modification</button>
         </div>
 
         <div class="inputListAdd{{indexList}}"><!-- formulaire création d'un nouvel item-->
           <input type="text" placeholder="Nouvelle tâche" [(ngModel)]="newListItem">
-          <button class="fas fa-plus-circle mx-2" (click)="createListItem()"></button>
+          <button class="fas fa-plus-circle mx-2" (click)="addListItem(indexList)"></button>
         </div>
 
       </li> <!-- fin de la liste courante-->
 
     </ul>
 
-    <div> <!-- ajout nouvelle liste -->
+    <div class="divNewList"> <!-- ajout nouvelle liste -->
       <h2 class="text-center">Ajouter votre liste</h2>
 
       <label for="newListname">Nom :

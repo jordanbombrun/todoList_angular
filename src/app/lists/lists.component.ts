@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import List from '../models/list.model';
 import {APIResponse, ListService} from '../services/list.service';
 
@@ -11,7 +11,6 @@ import * as $ from 'jquery';
 })
 export class ListsComponent implements OnInit {
 
-  lists: List[];
   newListItem: string;
   APIObject: APIResponse;
   newList: List;
@@ -50,16 +49,21 @@ export class ListsComponent implements OnInit {
     $('div.inputListAdd' + indexList).hide();
   }
 
-  refreshAPI(indexList: number) {
-    this.listService.postData(this.APIObject);
+  editToAPI(indexList: number) {
+    console.log(this.APIObject);
+
+    //this.listService.postData(this.APIObject);
     $('div.listToEdit' + indexList).hide();
     $('div.inputListAdd' + indexList).show();
   }
 
-  /*addListItem() {
-    let buttonValid = $(".list" + indexList + " .fa-check-square");
-    buttonValid.replaceWith('<button class="fas fa-edit" (click)="editListItem(indexList, indexItem)"></button>');
-  }*/
+  addListItem(indexList: number) {
+    this.APIObject.todoListes[indexList].elements.push(this.newListItem);
+    console.log(this.APIObject.todoListes[indexList]);
+    this.listService.postData(this.APIObject);
+    this.newListItem = "";
+
+  }
 
 
 }
