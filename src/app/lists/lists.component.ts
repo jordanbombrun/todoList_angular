@@ -24,6 +24,15 @@ export class ListsComponent implements OnInit {
 
   getData() {
     this.APIObject = this.listService.conObject;
+    $('#divGetDate button').toggle();
+    $('#divAppConnexion').toggle();
+    $('#divshowLists').toggle();
+  }
+
+  showConnexion() {
+    $('#divAppConnexion').toggle();
+    $('#divGetDate button').toggle();
+    $('#divshowLists').toggle();
   }
 
   addList() {
@@ -50,16 +59,13 @@ export class ListsComponent implements OnInit {
   }
 
   editToAPI(indexList: number) {
-    console.log(this.APIObject);
-
-    //this.listService.postData(this.APIObject);
+    this.listService.postData(this.APIObject);
     $('div.listToEdit' + indexList).hide();
     $('div.inputListAdd' + indexList).show();
   }
 
   addListItem(indexList: number) {
     this.APIObject.todoListes[indexList].elements.push(this.newListItem);
-    console.log(this.APIObject.todoListes[indexList]);
     this.listService.postData(this.APIObject);
     this.newListItem = "";
 
