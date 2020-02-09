@@ -25,14 +25,16 @@ export class ListsComponent implements OnInit {
   getData() {
     this.APIObject = this.listService.conObject;
     $('#divGetDate button').toggle();
-    $('#divAppConnexion').toggle();
-    $('#divshowLists').toggle();
+    $('#divAppConnexion').toggle(400);
+    $('#divError').toggle();
+    $('#divshowLists').slideUp(400);
   }
 
   showConnexion() {
-    $('#divAppConnexion').toggle();
+    $('#divAppConnexion').toggle(400);
     $('#divGetDate button').toggle();
-    $('#divshowLists').toggle();
+    $('#divshowLists').slideDown(400);
+    $('#divError').toggle();
   }
 
   addList() {

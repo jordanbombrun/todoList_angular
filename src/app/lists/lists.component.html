@@ -1,7 +1,8 @@
 <div class="row mt-3">
   <div class="col-12 text-center mb-3" id="divGetDate">
     <button class="btn btn-warning" (click)="getData()">Afficher les listes</button>
-    <button class="btn btn-warning" (click)="showConnexion()">Afficher les champs d'enregistrement et de connexion</button>
+    <button class="btn btn-warning" (click)="showConnexion()">Afficher les champs d'enregistrement et de connexion
+    </button>
   </div>
 
   <div *ngIf="APIObject; else errorDiv" class="offset-2 col-8" id="divshowLists">
@@ -58,10 +59,9 @@
     </div>
   </div>
 
-  <ng-template #errorDiv><!--message d'erreur-->
-    <div class="offset-2 col-8 my-3">
-      <p class="text-center text-warning bg-dark p-3">Vous n'êtes pas connecté. Authentifiez vous pour afficher vos todo
-        listes !</p>
-    </div>
-  </ng-template>
+  <!--message d'erreur-->
+  <div class="offset-2 col-8 my-3" id="divError">
+    <p class="text-center text-warning bg-dark p-3">Vous n'êtes pas connecté. Authentifiez vous pour afficher vos todo
+      listes !</p>
+  </div>
 </div>
